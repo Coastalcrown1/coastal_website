@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Property Listings - Coastal Crown Realty</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body>
+  <div class="content-wrapper">
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <img src="{{ url_for('static', filename='sample_images/img0.png') }}" alt="Company Logo"/>
+      </div>
+      <div class="nav-container">
+        <nav>
+          <a href="{{ url_for('home') }}">Home</a>
+          <a href="{{ url_for('about_us') }}">About Us</a>
+          <a href="{{ url_for('properties') }}" class="active">Property Listings</a>
+          <a href="{{ url_for('services') }}">Services</a>
+          <a href="{{ url_for('blogs') }}">Blogs</a>
+          <a href="{{ url_for('contact') }}">Contact Us</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Property Listings -->
+    <section class="property-listings" style="padding: 120px 80px 60px;">
+      <h2 style="text-align: center; font-size: 32px; margin-bottom: 40px; color: #333;">Featured Properties</h2>
+      <div class="property-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+        
+        <!-- Property Cards (x6) -->
+        <!-- Use same format for each card -->
+        <!-- Example for Property 1 -->
+        <div class="property-card">
+          <img src="{{ url_for('static', filename='sample_images/img12.jpg') }}" alt="Property Image">
+          <div class="card-info">
+            <h3>Oceanfront Villa</h3>
+            <p>3 Beds · 2 Baths · 2,500 sq ft</p>
+            <p class="price">$1,200,000</p>
+            <a href="#" class="contact-btn" onclick="openModal('modal1')">View Details</a>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <img src="{{ url_for('static', filename='sample_images/img13.jpg') }}" alt="Property Image">
+          <div class="card-info">
+            <h3>Seaside Apartment</h3>
+            <p>2 Beds · 2 Baths · 1,200 sq ft</p>
+            <p class="price">$850,000</p>
+            <a href="#" class="contact-btn" onclick="openModal('modal2')">View Details</a>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <img src="{{ url_for('static', filename='sample_images/img14.jpg') }}" alt="Property Image">
+          <div class="card-info">
+            <h3>Luxury Island Home</h3>
+            <p>5 Beds · 4 Baths · 3,800 sq ft</p>
+            <p class="price">$2,400,000</p>
+            <a href="#" class="contact-btn" onclick="openModal('modal3')">View Details</a>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <img src="{{ url_for('static', filename='sample_images/img15.jpg') }}" alt="Property Image">
+          <div class="card-info">
+            <h3>Coastal Mansion</h3>
+            <p>6 Beds · 5 Baths · 5,000 sq ft</p>
+            <p class="price">$4,500,000</p>
+            <a href="#" class="contact-btn" onclick="openModal('modal4')">View Details</a>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <img src="{{ url_for('static', filename='sample_images/img16.jpg') }}" alt="Property Image">
+          <div class="card-info">
+            <h3>Resort-Style Villa</h3>
+            <p>4 Beds · 3 Baths · 3,000 sq ft</p>
+            <p class="price">$1,750,000</p>
+            <a href="#" class="contact-btn" onclick="openModal('modal5')">View Details</a>
+          </div>
+        </div>
+
+        <div class="property-card">
+          <img src="{{ url_for('static', filename='sample_images/img17.jpg') }}" alt="Property Image">
+          <div class="card-info">
+            <h3>Beach House Retreat</h3>
+            <p>3 Beds · 2 Baths · 2,200 sq ft</p>
+            <p class="price">$980,000</p>
+            <a href="#" class="contact-btn" onclick="openModal('modal6')">View Details</a>
+          </div>
+        </div>
+
+        <!-- Property 7 -->
+        <div class="property-card">
+            <img src="{{ url_for('static', filename='sample_images/img18.jpg') }}" alt="Property Image">
+            <div class="card-info">
+            <h3>Beachside Bungalow</h3>
+            <p>2 Beds · 1 Bath · 1,000 sq ft</p>
+            <p class="price">$620,000</p>
+            <a href="#" class="contact-btn" onclick="openModal('modal7')">View Details</a>
+            </div>
+        </div>
+        
+        <!-- Property 8 -->
+        <div class="property-card">
+            <img src="{{ url_for('static', filename='sample_images/img19.jpg') }}" alt="Property Image">
+            <div class="card-info">
+            <h3>Coastal Penthouse</h3>
+            <p>3 Beds · 2.5 Baths · 2,800 sq ft</p>
+            <p class="price">$1,900,000</p>
+            <a href="#" class="contact-btn" onclick="openModal('modal8')">View Details</a>
+            </div>
+        </div>
+  
+        
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-column left">
+        <h3>Coastal Crown Realty</h3>
+        <p style="color: #f0f0f0;">123 Ocean Drive, Miami</p>
+        <p style="color: #f0f0f0;">Florida 33139</p>
+        <p style="color: #f0f0f0;">contactcoastalrealty@gmail.com</p>
+        <a href="{{ url_for('contact') }}" class="contact-btn">Contact Us</a>
+      </div>
+      <div class="footer-column">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <div class="footer-bottom">
+      <p>© 2025 Coastal Crown Realty | All Rights Reserved</p>
+    </div>
+  </div>
+
+<!-- Property Detail Modals -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal1')">&times;</span>
+      <h2>Oceanfront Villa</h2>
+      <p><strong>Price:</strong> $1,200,000</p>
+      <p><strong>Address:</strong> 101 Seabreeze Ln, Miami, FL</p>
+      <p><strong>Year Built:</strong> 2018</p>
+      <p><strong>Size:</strong> 2,500 sq ft · Lot: 7,200 sq ft</p>
+      <p><strong>Bedrooms/Bathrooms:</strong> 3 Beds · 2 Baths</p>
+      <p><strong>Amenities:</strong></p>
+      <ul>
+        <li>Private Pool</li>
+        <li>Ocean View</li>
+        <li>Smart Home System</li>
+        <li>Garage</li>
+      </ul>
+      <p><strong>Description:</strong> Oceanfront luxury villa with modern interiors and beach access.</p>
+      <p><strong>Agent:</strong> Sarah Thompson</p>
+    </div>
+  </div>
+  
+  <div id="modal2" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal2')">&times;</span>
+      <h2>Seaside Apartment</h2>
+      <p><strong>Price:</strong> $850,000</p>
+      <p><strong>Address:</strong> 402 Coral Blvd, Santa Monica, CA</p>
+      <p><strong>Year Built:</strong> 2020</p>
+      <p><strong>Size:</strong> 1,200 sq ft</p>
+      <p><strong>Bedrooms/Bathrooms:</strong> 2 Beds · 2 Baths</p>
+      <p><strong>Amenities:</strong></p>
+      <ul>
+        <li>Balcony with Sea View</li>
+        <li>Gym Access</li>
+        <li>Secure Parking</li>
+      </ul>
+      <p><strong>Description:</strong> Cozy apartment with balcony overlooking the sea and premium facilities.</p>
+      <p><strong>Agent:</strong> Jason Miller</p>
+    </div>
+  </div>
+  
+  <div id="modal3" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal3')">&times;</span>
+      <h2>Luxury Island Home</h2>
+      <p><strong>Price:</strong> $2,400,000</p>
+      <p><strong>Address:</strong> 88 Palm Grove Rd, Key West, FL</p>
+      <p><strong>Year Built:</strong> 2015</p>
+      <p><strong>Size:</strong> 3,000 sq ft</p>
+      <p><strong>Bedrooms/Bathrooms:</strong> 4 Beds · 3.5 Baths</p>
+      <p><strong>Amenities:</strong></p>
+      <ul>
+        <li>Lush Gardens</li>
+        <li>Private Dock</li>
+        <li>Solar Power</li>
+      </ul>
+      <p><strong>Description:</strong> Elegant home with island views, lush gardens, and high-end finishes.</p>
+      <p><strong>Agent:</strong> Emily Ross</p>
+    </div>
+  </div>
+  
+  <div id="modal4" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal4')">&times;</span>
+      <h2>Coastal Mansion</h2>
+      <p><strong>Price:</strong> $4,500,000</p>
+      <p><strong>Address:</strong> 500 Shoreline Dr, Malibu, CA</p>
+      <p><strong>Year Built:</strong> 2012</p>
+      <p><strong>Size:</strong> 6,500 sq ft · Lot: 15,000 sq ft</p>
+      <p><strong>Bedrooms/Bathrooms:</strong> 6 Beds · 6 Baths</p>
+      <p><strong>Amenities:</strong></p>
+      <ul>
+        <li>Home Theater</li>
+        <li>Infinity Pool</li>
+        <li>Wine Cellar</li>
+        <li>Gated Property</li>
+      </ul>
+      <p><strong>Description:</strong> Grand mansion with stunning ocean views and luxury amenities.</p>
+      <p><strong>Agent:</strong> David Lee</p>
+    </div>
+  </div>
+  
+  <div id="modal5" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal5')">&times;</span>
+      <h2>Resort-Style Villa</h2>
+      <p><strong>Price:</strong> $1,750,000</p>
+      <p><strong>Address:</strong> 303 Paradise Cove, Naples, FL</p>
+      <p><strong>Year Built:</strong> 2019</p>
+      <p><strong>Size:</strong> 2,800 sq ft</p>
+      <p><strong>Bedrooms/Bathrooms:</strong> 4 Beds · 3 Baths</p>
+      <p><strong>Amenities:</strong></p>
+      <ul>
+        <li>Private Spa</li>
+        <li>Beach Club Access</li>
+        <li>Outdoor Kitchen</li>
+      </ul>
+      <p><strong>Description:</strong> Resort-style living with open-plan design and premium features.</p>
+      <p><strong>Agent:</strong> Natalie Green</p>
+    </div>
+  </div>
+  
+  <div id="modal6" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal6')">&times;</span>
+      <h2>Beach House Retreat</h2>
+      <p><strong>Price:</strong> $980,000</p>
+      <p><strong>Address:</strong> 789 Sunset Bay Rd, Sarasota, FL</p>
+      <p><strong>Year Built:</strong> 2016</p>
+      <p><strong>Size:</strong> 1,900 sq ft</p>
+      <p><strong>Bedrooms/Bathrooms:</strong> 3 Beds · 2 Baths</p>
+      <p><strong>Amenities:</strong></p>
+      <ul>
+        <li>Wraparound Deck</li>
+        <li>Outdoor Shower</li>
+        <li>Fire Pit</li>
+      </ul>
+      <p><strong>Description:</strong> Quiet beachside retreat perfect for getaways and relaxation.</p>
+      <p><strong>Agent:</strong> Olivia Martinez</p>
+    </div>
+  </div>
+
+  <div id="modal7" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal7')">&times;</span>
+      <h2>Beachside Bungalow</h2>
+      <p><strong>Price:</strong> $620,000</p>
+      <p><strong>Address:</strong> 12 Breezy Lane, Clearwater, FL</p>
+      <p><strong>Year Built:</strong> 2014</p>
+      <p><strong>Size:</strong> 1,000 sq ft · Lot: 3,500 sq ft</p>
+      <p><strong>Bedrooms/Bathrooms:</strong> 2 Beds · 1 Bath</p>
+      <p><strong>Amenities:</strong></p>
+      <ul>
+        <li>Private Garden</li>
+        <li>Covered Patio</li>
+        <li>Beach Access</li>
+      </ul>
+      <p><strong>Description:</strong> A peaceful and charming beachside bungalow, ideal for cozy living or rental income.</p>
+      <p><strong>Agent:</strong> Brian Cooper</p>
+    </div>
+  </div>
+  
+  <div id="modal8" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal8')">&times;</span>
+      <h2>Coastal Penthouse</h2>
+      <p><strong>Price:</strong> $3,100,000</p>
+      <p><strong>Address:</strong> 88 Marina Towers, San Diego, CA</p>
+      <p><strong>Year Built:</strong> 2021</p>
+      <p><strong>Size:</strong> 4,200 sq ft</p>
+      <p><strong>Bedrooms/Bathrooms:</strong> 4 Beds · 4 Baths</p>
+      <p><strong>Amenities:</strong></p>
+      <ul>
+        <li>Rooftop Pool</li>
+        <li>Smart Lighting & Sound</li>
+        <li>Panoramic Ocean Views</li>
+      </ul>
+      <p><strong>Description:</strong> Premium coastal penthouse offering luxury finishes and stunning waterfront living.</p>
+      <p><strong>Agent:</strong> Hannah Lee</p>
+    </div>
+  </div>
+  
+  
+
+
+  <!-- Modal Script -->
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+    window.onclick = function(event) {
+      const modals = document.querySelectorAll(".modal");
+      modals.forEach(modal => {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+    };
+  </script>
+</body>
+</html>

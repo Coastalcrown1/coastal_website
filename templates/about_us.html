@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Real Estate</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}"> <!-- This should include or import your home.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="content-wrapper">
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="{{ url_for('static', filename='sample_images/img0.png') }}" alt="Company Logo">
+        </div>
+        <div class="nav-container">
+            <nav>
+                <a href="{{ url_for('home') }}">Home</a>
+                <a href="{{ url_for('about_us') }}" class="active">About Us</a>
+                <a href="{{ url_for('properties') }}">Property Listings</a>
+                <a href="{{ url_for('services') }}">Services</a>
+                <a href="{{ url_for('blogs') }}">Blogs</a>
+                <a href="{{ url_for('contact') }}">Contact Us</a>
+              </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="slider" style="height: 70vh;">
+        <div class="slide">
+            <img src="{{ url_for('static', filename='sample_images/img23.png') }}" alt="About Us Hero">
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="faq-section" style="padding: 80px 60px;">
+      <h2 style="font-size: 36px; text-align: center; color: #222; margin-bottom: 40px; animation: fadeInUp 0.8s ease forwards;">
+          Who We Are
+      </h2>
+      <div style="display: flex; gap: 60px; margin-top: 40px;">
+          <div style="flex: 1; animation: fadeUp 0.6s ease forwards;">
+              <h3 style="color:#222; font-size:24px; margin-bottom:15px;">Our Mission</h3>
+              <p style="color:#555; font-size:16px; line-height:1.6;">
+                  We are committed to redefining the real estate experience through innovation, integrity, and a client-first approach.
+                  Our mission is to connect people with their dream properties while maintaining the highest standards of service.
+              </p>
+          </div>
+          <div style="flex: 1; animation: fadeUp 0.6s ease forwards; animation-delay: 0.2s;">
+              <h3 style="color:#222; font-size:24px; margin-bottom:15px;">Our Vision</h3>
+              <p style="color:#555; font-size:16px; line-height:1.6;">
+                  To be the most trusted and sought-after real estate firm, known for creating value and delivering excellence in every transaction.
+                  We envision communities built on trust, transparency, and quality living.
+              </p>
+          </div>
+      </div>
+    </section>
+
+
+    <!-- Our Team -->
+    <section class="services-section" style="padding: 80px 60px;">
+        <h2 style="text-align:center; font-size: 32px; color: #333; margin-bottom: 60px;">Meet Our Team</h2>
+        <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+            <div class="service-card" style="--delay: 0s;">
+                <img src="{{ url_for('static', filename='sample_images/img6.jpg') }}" alt="Team Member" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; margin-bottom: 20px;">
+                <h3>Alex Morgan</h3>
+                <p>Founder & CEO</p>
+            </div>
+            <div class="service-card" style="--delay: 0.1s;">
+                <img src="{{ url_for('static', filename='sample_images/img8.jpg') }}" alt="Team Member" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; margin-bottom: 20px;">
+                <h3>Samantha Lee</h3>
+                <p>Marketing Director</p>
+            </div>
+            <div class="service-card" style="--delay: 0.2s;">
+                <img src="{{ url_for('static', filename='sample_images/img7.jpg') }}" alt="Team Member" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; margin-bottom: 20px;">
+                <h3>Daniel Chen</h3>
+                <p>Lead Architect</p>
+            </div>
+            <div class="service-card" style="--delay: 0.3s;">
+                <img src="{{ url_for('static', filename='sample_images/img9.jpg') }}" alt="Team Member" style="border-radius: 50%; width: 120px; height: 120px; object-fit: cover; margin-bottom: 20px;">
+                <h3>Nina Patel</h3>
+                <p>Client Relations</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-column left">
+        <h3>Coastal Crown Realty</h3>
+        <p style="color: #f0f0f0;">123 Ocean Drive, Miami</p>
+        <p style="color: #f0f0f0;">Florida 33139</p>
+        <p style="color: #f0f0f0;">contactcoastalrealty@gmail.com</p>
+        <a href="{{ url_for('contact') }}" class="contact-btn">Contact Us</a>
+      </div>
+      <div class="footer-column">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <div class="footer-bottom">
+      <p>© 2025 Coastal Crown Realty | All Rights Reserved</p>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

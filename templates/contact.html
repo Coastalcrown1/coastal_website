@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Coastal Crown Realty</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+</head>
+<body>
+  <div class="content-wrapper">
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <img src="{{ url_for('static', filename='sample_images/img0.png') }}" alt="Company Logo"/>
+      </div>
+      <div class="nav-container">
+        <nav>
+          <a href="{{ url_for('home') }}">Home</a>
+          <a href="{{ url_for('about_us') }}">About Us</a>
+          <a href="{{ url_for('properties') }}">Property Listings</a>
+          <a href="{{ url_for('services') }}">Services</a>
+          <a href="{{ url_for('blogs') }}">Blogs</a>
+          <a href="{{ url_for('contact') }}" class="active">Contact Us</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="contact-info">
+        <h2>Get In Touch</h2>
+        <p>We’d love to hear from you! Whether you have questions about a listing, need help buying or selling, or just want to connect — our team is ready to help.</p>
+        <p><strong>Address:</strong> 123 Ocean Drive, Miami</p>
+        <p><strong></strong> Florida 33139</p>
+        <p><strong>Email:</strong> contactcoastalrealty@gmail.com</p>
+      </div>
+
+      <div class="contact-form">
+        <h3>Send a Message</h3>
+        <form id="contactForm" method="POST" action="{{ url_for('contact') }}" novalidate>
+          <div class="form-group">
+            <div id="nameError" class="error"></div>
+            <input type="text" id="name" name="name" placeholder="Your Name" />
+          </div>
+        
+          <div class="form-group">
+            <div id="emailError" class="error"></div>
+            <input type="email" id="email" name="email" placeholder="Your Email" />
+          </div>
+        
+          <div class="form-group">
+            <div id="subjectError" class="error"></div>
+            <input type="text" id="subject" name="subject" placeholder="Subject" />
+          </div>
+        
+          <div class="form-group">
+            <div id="messageError" class="error"></div>
+            <textarea id="message" name="message" rows="5" placeholder="Your Message"></textarea>
+          </div>
+        
+          <button type="submit">Send Message</button>
+        </form>        
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-question">How do I schedule a property tour?</div>
+        <div class="faq-answer">You can schedule a tour by contacting us directly through the form above or calling our office. We’ll work with your schedule to set a convenient time.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Do you help with mortgage pre-approval?</div>
+        <div class="faq-answer">Yes! We partner with trusted lenders and can guide you through the pre-approval process to ensure you're ready to make a strong offer.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">What areas do you serve?</div>
+        <div class="faq-answer">We specialize in coastal properties across Miami, Fort Lauderdale, and surrounding areas — including luxury beachfront and inland family homes.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Can I list my property with you?</div>
+        <div class="faq-answer">Absolutely. We offer complete listing services including professional photos, marketing, open houses, and strategic pricing to attract buyers fast.</div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-column left">
+        <h3>Coastal Crown Realty</h3>
+        <p style="color: #f0f0f0;">123 Ocean Drive, Miami</p>
+        <p style="color: #f0f0f0;">Florida 33139</p>
+        <p style="color: #f0f0f0;">contactcoastalrealty@gmail.com</p>
+        <a href="{{ url_for('contact') }}" class="contact-btn">Contact Us</a>
+      </div>
+      <div class="footer-column">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <div class="footer-bottom">
+      <p>© 2025 Coastal Crown Realty | All Rights Reserved</p>
+    </div>
+  </div>
+
+  <!-- Popup -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <img src="https://cdn-icons-png.flaticon.com/512/845/845646.png" alt="Success Icon">
+      <p>Thank you for contacting us. We will get back to you shortly.</p>
+      <button onclick="closePopup()">OK</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // FAQ Toggle
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        question.parentElement.classList.toggle('open');
+      });
+    });
+  
+    const contactForm = document.getElementById("contactForm");
+    let allowSubmit = false; // Flag to control real form submission
+  
+    contactForm.addEventListener("submit", function (e) {
+      if (!allowSubmit) {
+        e.preventDefault(); // Stop default submission initially
+  
+        // Clear all previous errors
+        ["nameError", "emailError", "subjectError", "messageError"].forEach(id => {
+          document.getElementById(id).innerText = "";
+        });
+  
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const subject = document.getElementById("subject").value.trim();
+        const message = document.getElementById("message").value.trim();
+  
+        let isValid = true;
+  
+        if (!name) {
+          document.getElementById("nameError").innerText = "Name is required.";
+          isValid = false;
+        }
+
+        if (!email) {
+          document.getElementById("emailError").innerText = "Email is required.";
+          isValid = false;
+        } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+          document.getElementById("emailError").innerText = "Enter a valid email.";
+          isValid = false;
+        }
+
+        if (!subject) {
+          document.getElementById("subjectError").innerText = "Subject is required.";
+          isValid = false;
+        }
+  
+        if (isValid) {
+          // Show popup first
+          document.getElementById("popup").style.display = "flex";
+        }
+      }
+    });
+  
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+      allowSubmit = true;           // Enable form submission
+      contactForm.submit();         // Now submit for real
+    }
+  </script>
+  
+  
+</body>
+</html>
